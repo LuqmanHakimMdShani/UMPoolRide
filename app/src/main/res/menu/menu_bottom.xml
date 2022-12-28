@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/DestWallet"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Wallet"
+        />
+
+    <item
+        android:id="@+id/DestHome"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="Home"
+        />
+
+    <item
+        android:id="@+id/DestSetting"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="Setting"
+        />
+
+</menu>
