@@ -9,5 +9,45 @@
         android:id="@+id/walletFragment"
         android:name="com.example.umpoolride.WalletFragment"
         android:label="fragment_wallet"
-        tools:layout="@layout/fragment_wallet" />
+        tools:layout="@layout/fragment_wallet" >
+        <action
+            android:id="@+id/WalletToTopup"
+            app:destination="@id/topupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topupFragment"
+        android:name="com.example.umpoolride.TopupFragment"
+        android:label="fragment_topup"
+        tools:layout="@layout/fragment_topup" >
+        <action
+            android:id="@+id/TopuptoWallet"
+            app:destination="@id/walletFragment" />
+        <action
+            android:id="@+id/TopupToTopupSource"
+            app:destination="@id/topupSourceFragment" />
+        <action
+            android:id="@+id/DataTransferTopupToTransactionSuccesful"
+            app:destination="@id/transactionSuccessfulFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topupSourceFragment"
+        android:name="com.example.umpoolride.TopupSourceFragment"
+        android:label="fragment_topup_source"
+        tools:layout="@layout/fragment_topup_source" >
+        <action
+            android:id="@+id/TopupSourceToTopup"
+            app:destination="@id/topupFragment" />
+        <action
+            android:id="@+id/action_topupSourceFragment_to_transactionSuccessfulFragment"
+            app:destination="@id/transactionSuccessfulFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionSuccessfulFragment"
+        android:name="com.example.umpoolride.TransactionSuccessfulFragment"
+        android:label="fragment_transaction_successful"
+        tools:layout="@layout/fragment_transaction_successful" >
+        <action
+            android:id="@+id/action_transactionSuccessfulFragment_to_walletFragment"
+            app:destination="@id/walletFragment" />
+    </fragment>
 </navigation>

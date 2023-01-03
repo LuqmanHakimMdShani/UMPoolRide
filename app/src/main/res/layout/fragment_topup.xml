@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TopupFragment">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How much?"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="@dimen/cardview_compat_inset_shadow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/topuprm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="RM"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="6dp" />
+
+        <EditText
+            android:id="@+id/topupamount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="0.00"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="6dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/PaymentMethodBtn"
+        android:layout_width="433dp"
+        android:layout_height="100dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="payment method"
+        android:src="@drawable/walletnavbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0">
+    </ImageButton>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:textColor="#FAFAFA"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/PaymentMethodBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.951" />*/
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,26 +5,100 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WalletFragment" >
+    tools:context=".WalletFragment"
+    android:background="@drawable/backgroundwallet2"
+    >
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="931dp"
-        android:layout_height="1446dp"
-        android:src="@drawable/backgroundwallet"
+    <ImageButton
+        android:id="@+id/TransHistBtn"
+        android:layout_width="136dp"
+        android:layout_height="156dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="TransactionHistory"
+        android:scaleType="fitCenter"
+        android:src="@drawable/transhisticon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/TopupBtn"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.11" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="235dp"
-        android:layout_height="407dp"
-        android:layout_marginBottom="332dp"
+        android:id="@+id/TitleTV"
+        android:layout_width="292dp"
+        android:layout_height="151dp"
+        android:contentDescription="Title"
         android:src="@drawable/title1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="256dp"
+        android:layout_height="85dp"
+        android:src="@drawable/background2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTV"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/WalletIcon"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:src="@drawable/walleticon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTV"
+        app:layout_constraintVertical_bias="0.039" />
+
+    <TextView
+        android:id="@+id/RM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RM"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/WalletIcon"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTV"
+        app:layout_constraintVertical_bias="0.038" />
+
+    <TextView
+        android:id="@+id/BalanceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        android:text="100.00"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/RM"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTV"
+        app:layout_constraintVertical_bias="0.038" />
+
+    <ImageButton
+        android:id="@+id/TopupBtn"
+        android:layout_width="136dp"
+        android:layout_height="156dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="TopUp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/topupicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.11" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

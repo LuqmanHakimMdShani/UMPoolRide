@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UMPoolRide"
         tools:targetApi="31">
+        <activity android:name=".TopupSourceFragment" />
         <activity
             android:name=".HomePageFragment"
             android:exported="false">
