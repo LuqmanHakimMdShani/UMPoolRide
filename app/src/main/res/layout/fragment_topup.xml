@@ -71,8 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="1.0">
-    </ImageButton>
+        app:layout_constraintVertical_bias="1.0"></ImageButton>
 
     <TextView
         android:id="@+id/textView6"
@@ -82,10 +81,10 @@
         android:textColor="#FAFAFA"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/PaymentMethodBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.951" />*/
+        app:layout_constraintEnd_toEndOf="@+id/PaymentMethodBtn"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/PaymentMethodBtn"
+        app:layout_constraintTop_toTopOf="@+id/PaymentMethodBtn"
+        app:layout_constraintVertical_bias="0.436" />*/
 
 </androidx.constraintlayout.widget.ConstraintLayout>

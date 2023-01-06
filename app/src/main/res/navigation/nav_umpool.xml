@@ -13,6 +13,9 @@
         <action
             android:id="@+id/WalletToTopup"
             app:destination="@id/topupFragment" />
+        <action
+            android:id="@+id/WalletToTransHist"
+            app:destination="@id/transHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/topupFragment"
@@ -25,9 +28,6 @@
         <action
             android:id="@+id/TopupToTopupSource"
             app:destination="@id/topupSourceFragment" />
-        <action
-            android:id="@+id/DataTransferTopupToTransactionSuccesful"
-            app:destination="@id/transactionSuccessfulFragment" />
     </fragment>
     <fragment
         android:id="@+id/topupSourceFragment"
@@ -47,7 +47,12 @@
         android:label="fragment_transaction_successful"
         tools:layout="@layout/fragment_transaction_successful" >
         <action
-            android:id="@+id/action_transactionSuccessfulFragment_to_walletFragment"
+            android:id="@+id/TransSuccessfulToWallet"
             app:destination="@id/walletFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/transHistoryFragment"
+        android:name="com.example.umpoolride.TransHistoryFragment"
+        android:label="fragment_trans_history"
+        tools:layout="@layout/fragment_trans_history" />
 </navigation>

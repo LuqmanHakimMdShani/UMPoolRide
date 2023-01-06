@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -18,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -35,9 +39,14 @@ public class TopupFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_topup, container, false);
     }
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        bottomNavigationView = getActivity().findViewById(R.id.bottom_nav_view);
+        bottomNavigationView.setVisibility(View.GONE);
 
         EditText etText = view.findViewById(R.id.topupamount);
         etText.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(5, 2)});
