@@ -7,9 +7,9 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/row_type"
-        android:layout_width="206dp"
-        android:layout_height="27dp"
+        android:id="@+id/row_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -20,31 +20,17 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/row_amount"
-        android:layout_width="202dp"
-        android:layout_height="54dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/row_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/row_type"
-        app:layout_constraintTop_toBottomOf="@+id/row_type"
-        app:layout_constraintVertical_bias="0.49" />
-
-    <TextView
-        android:id="@+id/row_date"
-        android:layout_width="206dp"
-        android:layout_height="28dp"
+        android:id="@+id/row_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/row_type"
+        app:layout_constraintTop_toBottomOf="@+id/row_title"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.Toolbar
@@ -60,6 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/row_description"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

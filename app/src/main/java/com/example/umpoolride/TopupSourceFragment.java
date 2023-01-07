@@ -47,7 +47,7 @@ public class TopupSourceFragment extends Fragment {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
                 String currentTime = dateFormat.format(new Date());
 
-                boolean isInserted = myDB.insertData("Ali","Top up", Double.parseDouble(data),currentTime);
+                boolean isInserted = myDB.insertTopup("Ali","Top up", Double.parseDouble(data),currentTime);
                 if (isInserted = true)
                     Toast.makeText(getActivity(),"Data Inserted",Toast.LENGTH_LONG).show();
                 else

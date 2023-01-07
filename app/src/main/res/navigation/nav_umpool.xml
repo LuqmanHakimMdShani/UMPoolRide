@@ -16,6 +16,9 @@
         <action
             android:id="@+id/WalletToTransHist"
             app:destination="@id/transHistoryFragment" />
+        <action
+            android:id="@+id/WalletToNoti"
+            app:destination="@id/notificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/topupFragment"
@@ -55,4 +58,9 @@
         android:name="com.example.umpoolride.TransHistoryFragment"
         android:label="fragment_trans_history"
         tools:layout="@layout/fragment_trans_history" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.umpoolride.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
 </navigation>

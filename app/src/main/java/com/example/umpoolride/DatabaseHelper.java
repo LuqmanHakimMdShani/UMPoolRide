@@ -15,6 +15,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String T1Col4 = "Amount";
     public static final String T1Col5 = "DateTime";
 
+    public static final String Notificationtable = "notification_table";
+    public static final String T2Col1 = "ID";
+    public static final String T2Col2 = "username";
+    public static final String T2Col3 = "NotificationTitle";
+    public static final String T2Col4 = "NotificationDescription";
+    public static final String T2Col5 = "DateTime";
+
     public DatabaseHelper(MainActivity context) {
         super(context, Wallet, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -23,6 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + Transactiontable + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT,TypeofTransaction TEXT,Amount REAL,DateTime TEXT)");
+        db.execSQL("CREATE TABLE " + Notificationtable + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT,NotificationTitle TEXT,NotificationDescription TEXT,DateTime TEXT)");
     }
 
     @Override
@@ -31,7 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String username,String type,double amount,String datetime){
+    public boolean insertTopup(String username,String type,double amount,String datetime){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(T1Col2,username);
@@ -39,6 +47,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(T1Col4,amount);
         contentValues.put(T1Col5,datetime);
         long result = db.insert(Transactiontable,null,contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertNoti(String username,String NotiTitle,String NotiDesc,String DateTime){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T2Col2,username);
+        contentValues.put(T2Col3,NotiTitle);
+        contentValues.put(T2Col4,NotiDesc);
+        contentValues.put(T2Col5,DateTime);
+        long result = db.insert(Notificationtable,null,contentValues);
         if (result == -1)
             return false;
         else

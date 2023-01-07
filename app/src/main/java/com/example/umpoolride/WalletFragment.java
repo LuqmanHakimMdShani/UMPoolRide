@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -74,6 +75,16 @@ public class WalletFragment extends Fragment {
             }
         };
         TransHistBtn.setOnClickListener(OCLTransHist);
+
+        Button NotificationBtn = view.findViewById(R.id.NotificationBtn);
+
+        View.OnClickListener OCLNotification = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.WalletToNoti);
+            }
+        };
+        NotificationBtn.setOnClickListener(OCLNotification);
 
     }
 }
