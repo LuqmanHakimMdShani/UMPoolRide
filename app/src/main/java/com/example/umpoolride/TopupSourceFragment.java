@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -19,6 +21,7 @@ import java.util.Date;
 public class TopupSourceFragment extends Fragment {
 
     DatabaseHelper myDB;
+    private static final String CHANNEL_ID = "my_channel_id";
 
     public TopupSourceFragment() {
         // Required empty public constructor
@@ -47,7 +50,14 @@ public class TopupSourceFragment extends Fragment {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
                 String currentTime = dateFormat.format(new Date());
 
-                boolean isInserted = myDB.insertTopup("Ali","Top up", Double.parseDouble(data),currentTime);
+                double data1 = Double.parseDouble(data);
+                String username = "Ali";
+                String Topup = "Top up";
+                String Amount = String.format("RM%.2f",data1);
+
+                myDB.insertNoti(username,Topup,Amount,currentTime);
+
+                boolean isInserted = myDB.insertTopup(username,Topup, data1,currentTime);
                 if (isInserted = true)
                     Toast.makeText(getActivity(),"Data Inserted",Toast.LENGTH_LONG).show();
                 else
@@ -56,10 +66,22 @@ public class TopupSourceFragment extends Fragment {
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("key", data);
                 Navigation.findNavController(view).navigate(R.id.action_topupSourceFragment_to_transactionSuccessfulFragment, bundle1);
+                sendNotification(Topup,Amount);
             }
         };
         BankTransferBtn.setOnClickListener(OCLBankTransfer);
 
+    }
+
+    private void sendNotification(String NotiTitle,String NotiDesc) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID)
+                .setSmallIcon(R.drawable.notificationicon)
+                .setContentTitle(NotiTitle)
+                .setContentText("You have Top up "+NotiDesc+" into your account")
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
+        notificationManager.notify(1, builder.build());
     }
 
 }
