@@ -89,6 +89,7 @@ public class TopupSourceFragment extends Fragment {
                 .setSmallIcon(R.drawable.notificationicon)
                 .setContentTitle(NotiTitle)
                 .setContentText(NotiDesc)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(NotiDesc))
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
