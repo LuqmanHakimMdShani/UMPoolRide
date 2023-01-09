@@ -1,12 +1,9 @@
 package com.example.umpoolride;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -44,6 +41,10 @@ public class TopupFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
+        toolbar.setTitle("Top up");
+        toolbar.setVisibility(View.VISIBLE);
 
         bottomNavigationView = getActivity().findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setVisibility(View.GONE);

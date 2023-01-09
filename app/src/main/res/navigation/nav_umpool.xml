@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_umpool"
-    app:startDestination="@id/walletFragment">
+    app:startDestination="@id/DestWallet">
 
     <fragment
-        android:id="@+id/walletFragment"
+        android:id="@+id/DestWallet"
         android:name="com.example.umpoolride.WalletFragment"
         android:label="fragment_wallet"
         tools:layout="@layout/fragment_wallet" >
@@ -18,7 +18,7 @@
             app:destination="@id/transHistoryFragment" />
         <action
             android:id="@+id/WalletToNoti"
-            app:destination="@id/notificationFragment" />
+            app:destination="@id/DestNoti" />
     </fragment>
     <fragment
         android:id="@+id/topupFragment"
@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_topup" >
         <action
             android:id="@+id/TopuptoWallet"
-            app:destination="@id/walletFragment" />
+            app:destination="@id/DestWallet" />
         <action
             android:id="@+id/TopupToTopupSource"
             app:destination="@id/topupSourceFragment" />
@@ -51,7 +51,7 @@
         tools:layout="@layout/fragment_transaction_successful" >
         <action
             android:id="@+id/TransSuccessfulToWallet"
-            app:destination="@id/walletFragment" />
+            app:destination="@id/DestWallet" />
     </fragment>
     <fragment
         android:id="@+id/transHistoryFragment"
@@ -59,8 +59,9 @@
         android:label="fragment_trans_history"
         tools:layout="@layout/fragment_trans_history" />
     <fragment
-        android:id="@+id/notificationFragment"
+        android:id="@+id/DestNoti"
         android:name="com.example.umpoolride.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+
 </navigation>

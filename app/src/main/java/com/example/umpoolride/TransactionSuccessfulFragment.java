@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -25,6 +26,9 @@ public class TransactionSuccessfulFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
+        toolbar.setTitle("Top Up");
 
         double data = Double.parseDouble(getArguments().getString("key"));
 

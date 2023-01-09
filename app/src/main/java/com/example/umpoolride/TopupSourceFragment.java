@@ -4,11 +4,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +40,9 @@ public class TopupSourceFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
+        toolbar.setTitle("Top Up Sources");
+
         myDB = new DatabaseHelper((MainActivity) getContext());
 
         String data = getArguments().getString("TopupAmount");
@@ -53,9 +58,9 @@ public class TopupSourceFragment extends Fragment {
                 double data1 = Double.parseDouble(data);
                 String username = "Ali";
                 String Topup = "Top up";
-                String Amount = String.format("RM%.2f",data1);
+                String NotiDesc = String.format("You have Top up RM%.2f into your account.",data1);
 
-                myDB.insertNoti(username,Topup,Amount,currentTime);
+                myDB.insertNoti(username,Topup,NotiDesc,currentTime);
 
                 boolean isInserted = myDB.insertTopup(username,Topup, data1,currentTime);
                 if (isInserted = true)
@@ -66,7 +71,13 @@ public class TopupSourceFragment extends Fragment {
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("key", data);
                 Navigation.findNavController(view).navigate(R.id.action_topupSourceFragment_to_transactionSuccessfulFragment, bundle1);
-                sendNotification(Topup,Amount);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        sendNotification(Topup,NotiDesc);
+                    }
+                }, 5000); // delay by 5 seconds
             }
         };
         BankTransferBtn.setOnClickListener(OCLBankTransfer);
@@ -77,7 +88,7 @@ public class TopupSourceFragment extends Fragment {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID)
                 .setSmallIcon(R.drawable.notificationicon)
                 .setContentTitle(NotiTitle)
-                .setContentText("You have Top up "+NotiDesc+" into your account")
+                .setContentText(NotiDesc)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
