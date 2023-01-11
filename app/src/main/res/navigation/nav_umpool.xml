@@ -41,8 +41,11 @@
             android:id="@+id/TopupSourceToTopup"
             app:destination="@id/topupFragment" />
         <action
-            android:id="@+id/action_topupSourceFragment_to_transactionSuccessfulFragment"
+            android:id="@+id/TopupSourcesToTransSuccess"
             app:destination="@id/transactionSuccessfulFragment" />
+        <action
+            android:id="@+id/TopupSourcesToCC"
+            app:destination="@id/creditCardFragment" />
     </fragment>
     <fragment
         android:id="@+id/transactionSuccessfulFragment"
@@ -63,5 +66,13 @@
         android:name="com.example.umpoolride.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/creditCardFragment"
+        android:name="com.example.umpoolride.CreditCardFragment"
+        android:label="CreditCardFragment" >
+        <action
+            android:id="@+id/CCToTransSuccess"
+            app:destination="@id/transactionSuccessfulFragment" />
+    </fragment>
 
 </navigation>

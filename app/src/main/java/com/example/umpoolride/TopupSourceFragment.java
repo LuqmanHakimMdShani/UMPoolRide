@@ -55,22 +55,22 @@ public class TopupSourceFragment extends Fragment {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
                 String currentTime = dateFormat.format(new Date());
 
-                double data1 = Double.parseDouble(data);
+                double Amount = Double.parseDouble(data);
                 String username = "Ali";
-                String Topup = "Top up";
-                String NotiDesc = String.format("You have Top up RM%.2f into your account.",data1);
+                String Topup = "Top up (Bank Transfer)";
+                String NotiDesc = String.format("You have Top up RM%.2f into your account.",Amount);
 
                 myDB.insertNoti(username,Topup,NotiDesc,currentTime);
 
-                boolean isInserted = myDB.insertTopup(username,Topup, data1,currentTime);
+                boolean isInserted = myDB.insertTopup(username,Topup, Amount,currentTime);
                 if (isInserted = true)
-                    Toast.makeText(getActivity(),"Data Inserted",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Top up succesful",Toast.LENGTH_LONG).show();
                 else
-                    Toast.makeText(getActivity(),"Data not Inserted",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Top up not succesful",Toast.LENGTH_LONG).show();
 
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("key", data);
-                Navigation.findNavController(view).navigate(R.id.action_topupSourceFragment_to_transactionSuccessfulFragment, bundle1);
+                Navigation.findNavController(view).navigate(R.id.TopupSourcesToTransSuccess, bundle1);
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -80,7 +80,23 @@ public class TopupSourceFragment extends Fragment {
                 }, 5000); // delay by 5 seconds
             }
         };
+
         BankTransferBtn.setOnClickListener(OCLBankTransfer);
+
+        Button CreditDebitBtn = view.findViewById(R.id.CreditDebitBtn);
+
+        View.OnClickListener OCLCreditDebit = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("CC", data);
+
+                Navigation.findNavController(view).navigate(R.id.TopupSourcesToCC, bundle1);
+            }
+        };
+        CreditDebitBtn.setOnClickListener(OCLCreditDebit);
+
 
     }
 
