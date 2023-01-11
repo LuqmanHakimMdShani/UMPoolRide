@@ -49,7 +49,7 @@ public class NotificationFragment extends Fragment {
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
         toolbar.setTitle("Notifications");
 
-        myDB = new DatabaseHelper((MainActivity) getActivity());
+        myDB = new DatabaseHelper(getContext());
 
         recyclerView = view.findViewById(R.id.recycle1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -62,13 +62,15 @@ public class NotificationFragment extends Fragment {
                 "DateTime"
         };
 
+        String condition = Credentials.USERNAME;
+
         String sortOrder = "DateTime DESC";
 
         Cursor cursor = db.query(
                 "notification_table",   // The table to query
                 projection,       // The columns to return
-                null,             // The columns for the WHERE clause
-                null,             // The values for the WHERE clause
+                "Email LIKE ?",             // The columns for the WHERE clause
+                new String[]{condition},             // The values for the WHERE clause
                 null,             // don't group the rows
                 null,             // don't filter by row groups
                 sortOrder          // The sort order
@@ -96,7 +98,7 @@ public class NotificationFragment extends Fragment {
             public void onClick(View view) {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
                 String currentTime = dateFormat.format(new Date());
-                String username = "Ali";
+                String username = Credentials.USERNAME;
                 String NotiTitle = "Top up";
                 String NotiDesc = "RM 5.00";
 

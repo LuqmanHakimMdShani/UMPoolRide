@@ -43,7 +43,7 @@ public class TopupSourceFragment extends Fragment {
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
         toolbar.setTitle("Top Up Sources");
 
-        myDB = new DatabaseHelper((MainActivity) getContext());
+        myDB = new DatabaseHelper(getContext());
 
         String data = getArguments().getString("TopupAmount");
 
@@ -56,7 +56,7 @@ public class TopupSourceFragment extends Fragment {
                 String currentTime = dateFormat.format(new Date());
 
                 double Amount = Double.parseDouble(data);
-                String username = "Ali";
+                String username = Credentials.USERNAME;
                 String Topup = "Top up (Bank Transfer)";
                 String NotiDesc = String.format("You have Top up RM%.2f into your account.",Amount);
 

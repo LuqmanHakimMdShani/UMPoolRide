@@ -49,7 +49,7 @@ public class CreditCardFragment extends Fragment {
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
         toolbar.setTitle("Credit Card Details");
 
-        myDB = new DatabaseHelper((MainActivity) getContext());
+        myDB = new DatabaseHelper(getContext());
 
         String data = getArguments().getString("CC");
 
@@ -74,7 +74,7 @@ public class CreditCardFragment extends Fragment {
                     String currentTime = dateFormat.format(new Date());
 
                     double Amount = Double.parseDouble(data);
-                    String username = "Ali";
+                    String username = Credentials.USERNAME;
                     String Topup = "Top up (Credit/Debit)";
                     String NotiDesc = String.format("You have Top up RM%.2f into your account.",Amount);
 

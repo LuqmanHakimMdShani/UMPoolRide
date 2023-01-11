@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/generalMenuFragment">
+    <fragment
+        android:id="@+id/generalMenuFragment"
+        android:name="com.example.umpoolride.GeneralMenuFragment"
+        android:label="fragment_general_menu"
+        tools:layout="@layout/fragment_general_menu" >
+        <action
+            android:id="@+id/GeneralToSignin"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/GenMenuToSignup"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.umpoolride.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/SigninToForgot"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.umpoolride.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/SignupToGenMenu"
+            app:destination="@id/generalMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.umpoolride.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/ForgotToGenMenu"
+            app:destination="@id/generalMenuFragment" />
+    </fragment>
+</navigation>

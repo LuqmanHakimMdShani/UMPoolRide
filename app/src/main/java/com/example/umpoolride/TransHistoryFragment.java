@@ -44,7 +44,7 @@ public class TransHistoryFragment extends Fragment {
         toolbar.setTitle("Transaction History");
         toolbar.setVisibility(View.VISIBLE);
 
-        myDB = new DatabaseHelper((MainActivity) getActivity());
+        myDB = new DatabaseHelper(getContext());
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -57,13 +57,15 @@ public class TransHistoryFragment extends Fragment {
                 "DateTime"
         };
 
+        String condition = Credentials.USERNAME;
+
         String sortOrder = "DateTime DESC";
 
         Cursor cursor = db.query(
                 "transaction_table",   // The table to query
                 projection,       // The columns to return
-                null,             // The columns for the WHERE clause
-                null,             // The values for the WHERE clause
+                "Email LIKE ?",             // The columns for the WHERE clause
+                new String[]{condition},             // The values for the WHERE clause
                 null,             // don't group the rows
                 null,             // don't filter by row groups
                 sortOrder          // The sort order

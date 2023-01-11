@@ -32,6 +32,11 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
 
+    //implement file
+    implementation files('libs/activation.jar')
+    implementation files('libs/additionnal.jar')
+    implementation files('libs/mail.jar')
+
     //Room
     implementation 'androidx.room:room-testing:2.4.3'
     annotationProcessor 'androidx.room:room-compiler:2.4.3'

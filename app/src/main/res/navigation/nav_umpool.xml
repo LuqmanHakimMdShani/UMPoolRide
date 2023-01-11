@@ -16,18 +16,12 @@
         <action
             android:id="@+id/WalletToTransHist"
             app:destination="@id/transHistoryFragment" />
-        <action
-            android:id="@+id/WalletToNoti"
-            app:destination="@id/DestNoti" />
     </fragment>
     <fragment
         android:id="@+id/topupFragment"
         android:name="com.example.umpoolride.TopupFragment"
         android:label="fragment_topup"
         tools:layout="@layout/fragment_topup" >
-        <action
-            android:id="@+id/TopuptoWallet"
-            app:destination="@id/DestWallet" />
         <action
             android:id="@+id/TopupToTopupSource"
             app:destination="@id/topupSourceFragment" />
@@ -37,9 +31,6 @@
         android:name="com.example.umpoolride.TopupSourceFragment"
         android:label="fragment_topup_source"
         tools:layout="@layout/fragment_topup_source" >
-        <action
-            android:id="@+id/TopupSourceToTopup"
-            app:destination="@id/topupFragment" />
         <action
             android:id="@+id/TopupSourcesToTransSuccess"
             app:destination="@id/transactionSuccessfulFragment" />

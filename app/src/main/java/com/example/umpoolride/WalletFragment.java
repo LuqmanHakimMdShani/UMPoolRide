@@ -47,13 +47,13 @@ public class WalletFragment extends Fragment {
 
         double sum = 0;
 
-        myDB = new DatabaseHelper((MainActivity) getContext());
+        myDB = new DatabaseHelper(getContext());
 
         ImageButton TopupBtn = view.findViewById(R.id.TopupBtn);
 
         TextView TVAmount = view.findViewById(R.id.TVAmount);
 
-        Cursor cursor = myDB.SumAmount("Ali");
+        Cursor cursor = myDB.SumAmount();
         if (cursor.moveToFirst()) {
             sum = cursor.getDouble(0);
         }

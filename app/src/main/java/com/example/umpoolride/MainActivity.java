@@ -12,8 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseHelper myDB;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +23,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        myDB = new DatabaseHelper(this);
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
-        final NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        final NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.login_nav_host_fragment);
         final NavController navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
 
