@@ -68,6 +68,13 @@ public class MainMenuFragment extends Fragment {
         TVAmount.setText(String.format("RM %.2f", sum));
         cursor.close();
 
+        ContactBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.MainToContact);
+            }
+        });
+
         TopupBtnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

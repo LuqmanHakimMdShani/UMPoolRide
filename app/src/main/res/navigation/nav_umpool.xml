@@ -87,11 +87,19 @@
         <action
             android:id="@+id/MainToWallet"
             app:destination="@id/Wallet" />
+        <action
+            android:id="@+id/MainToContact"
+            app:destination="@id/contactUsFragment" />
     </fragment>
     <fragment
         android:id="@+id/DestSetting"
         android:name="com.example.umpoolride.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.example.umpoolride.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
 
 </navigation>
