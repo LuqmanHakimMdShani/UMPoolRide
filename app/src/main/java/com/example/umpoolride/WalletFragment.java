@@ -2,6 +2,11 @@ package com.example.umpoolride;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,18 +14,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 public class WalletFragment extends Fragment {
 
     DatabaseHelper myDB;
-    private BottomNavigationView bottomNavigationView;
 
     public WalletFragment() {
         // Required empty public constructor
@@ -42,16 +38,16 @@ public class WalletFragment extends Fragment {
 
         //((MainActivity) getActivity()).getSupportActionBar().setTitle("Wallet");
 
-        bottomNavigationView = getActivity().findViewById(R.id.bottom_nav_view);
-        bottomNavigationView.setVisibility(View.VISIBLE);
-
         double sum = 0;
 
         myDB = new DatabaseHelper(getContext());
 
         ImageButton TopupBtn = view.findViewById(R.id.TopupBtn);
 
-        TextView TVAmount = view.findViewById(R.id.TVAmount);
+        TextView TVAmount = view.findViewById(R.id.TVAmountMain);
+        TextView TVType = view.findViewById(R.id.TVType);
+
+        TVType.setText(Credentials.TYPEUSER);
 
         Cursor cursor = myDB.SumAmount();
         if (cursor.moveToFirst()) {
@@ -69,7 +65,6 @@ public class WalletFragment extends Fragment {
         TopupBtn.setOnClickListener(OCLTopup);
 
         ImageButton TransHistBtn = view.findViewById(R.id.TransHistBtn);
-
         View.OnClickListener OCLTransHist = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,5 +73,13 @@ public class WalletFragment extends Fragment {
         };
         TransHistBtn.setOnClickListener(OCLTransHist);
 
+        ImageButton DriverApplyBtn = view.findViewById(R.id.DriverApplyBtn2);
+        View.OnClickListener OCLDriverApply = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.WalletToDriverApply);
+            }
+        };
+        DriverApplyBtn.setOnClickListener(OCLDriverApply);
     }
 }

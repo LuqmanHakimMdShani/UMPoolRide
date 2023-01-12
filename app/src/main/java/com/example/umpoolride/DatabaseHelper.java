@@ -64,10 +64,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertTopup(String username,String type,double amount,String datetime){
+    public boolean insertTopup(String email,String type,double amount,String datetime){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(T1Col2,username);
+        contentValues.put(T1Col2,email);
         contentValues.put(T1Col3,type);
         contentValues.put(T1Col4,amount);
         contentValues.put(T1Col5,datetime);
@@ -78,10 +78,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertNoti(String username,String NotiTitle,String NotiDesc,String DateTime){
+    public boolean insertNoti(String email,String NotiTitle,String NotiDesc,String DateTime){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(T2Col2,username);
+        contentValues.put(T2Col2,email);
         contentValues.put(T2Col3,NotiTitle);
         contentValues.put(T2Col4,NotiDesc);
         contentValues.put(T2Col5,DateTime);
@@ -101,6 +101,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    public Cursor getTypeUser(String email){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor res = MyDB.rawQuery("Select "+T3Col4+" from "+Usertable+" where Email = ?", new String[] {email});
+        return res;
+    }
+
+    public Cursor getFullName(String email){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor res = MyDB.rawQuery("Select "+T3Col2+" from "+Usertable+" where Email = ?", new String[] {email});
+        return res;
+    }
+
     public Cursor SumAmount(){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -117,6 +129,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 " WHERE Email = \""+ Credentials.USERNAME+"\"", null);
         return res;
 
+    }
+
+    public boolean UpdateTypeofUser() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.execSQL("UPDATE "+Usertable+" SET TypeofUser = 'Driver' "+ "WHERE Email = ?", new String[]{Credentials.USERNAME});
+        return true;
     }
 
 }

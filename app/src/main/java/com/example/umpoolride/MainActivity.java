@@ -1,16 +1,18 @@
 package com.example.umpoolride;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import android.os.Bundle;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    BottomNavigationView bottomNavigationView, driverbottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +25,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        driverbottomNavigationView = findViewById(R.id.driver_bottom_nav_view);
         final NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.login_nav_host_fragment);
         final NavController navController = navHostFragment.getNavController();
-        NavigationUI.setupWithNavController(bottomNavigationView,navController);
+        NavigationUI.setupWithNavController(driverbottomNavigationView,navController);
+
+        bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        final NavHostFragment navHostFragment1 = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.login_nav_host_fragment);
+        final NavController navController1 = navHostFragment1.getNavController();
+        NavigationUI.setupWithNavController(bottomNavigationView,navController1);
 
     }
 

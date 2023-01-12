@@ -26,15 +26,33 @@
             app:navGraph="@navigation/nav_umpool" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav_view"
+            android:id="@+id/driver_bottom_nav_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/walletnavbg2"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconSize="42dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/driver_menu_bottom" >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/walletnavbg2"
+            app:itemIconSize="42dp"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_bottom" />
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_umpool"
-    app:startDestination="@id/DestWallet">
+    app:startDestination="@id/mainMenuFragment">
 
     <fragment
         android:id="@+id/DestWallet"
@@ -16,6 +16,9 @@
         <action
             android:id="@+id/WalletToTransHist"
             app:destination="@id/transHistoryFragment" />
+        <action
+            android:id="@+id/WalletToDriverApply"
+            app:destination="@id/driverApplyFragment" />
     </fragment>
     <fragment
         android:id="@+id/topupFragment"
@@ -64,6 +67,26 @@
         <action
             android:id="@+id/CCToTransSuccess"
             app:destination="@id/transactionSuccessfulFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverApplyFragment"
+        android:name="com.example.umpoolride.DriverApplyFragment"
+        android:label="DriverApplyFragment" >
+        <action
+            android:id="@+id/DriverApplyToMain"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.umpoolride.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/MainToWallet"
+            app:destination="@id/DestWallet" />
+        <action
+            android:id="@+id/MainToDriverApply"
+            app:destination="@id/driverApplyFragment" />
     </fragment>
 
 </navigation>

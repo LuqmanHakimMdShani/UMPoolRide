@@ -4,7 +4,13 @@
     <item
         android:id="@+id/DestWallet"
         android:icon="@drawable/wallet"
-        android:title="Home" />
+        android:title="Home"
+        android:visible="true" />
+
+    <item
+        android:id="@+id/DestDriver"
+        android:icon="@drawable/drivericon"
+        android:title="Driver" />
 
     <item
         android:id="@+id/DestNoti"

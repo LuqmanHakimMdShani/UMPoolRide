@@ -1,6 +1,7 @@
 package com.example.umpoolride;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,8 @@ public class SignInFragment extends Fragment {
                 String email = Siswamail.getText().toString();
                 String pass = Password.getText().toString();
 
+                String fullname = "";
+
                 //for testing main activity
                 //Credentials.USERNAME = email;
 
@@ -67,6 +70,15 @@ public class SignInFragment extends Fragment {
                     Boolean checkuserpass = myDB.checkemailpassword(email, pass);
                     if (checkuserpass == true) {
                         Credentials.USERNAME = email;
+
+                        Cursor cursor = myDB.getTypeUser(email);
+                        if (cursor.moveToFirst()) {
+                            Credentials.TYPEUSER = cursor.getString(0);
+                        }
+                        Cursor cursor1 = myDB.getFullName(email);
+                        if (cursor1.moveToFirst()) {
+                            Credentials.FULLNAME = cursor1.getString(0);
+                        }
                         Toast.makeText(getActivity(), "Sign in successfull", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), MainActivity.class);
                         startActivity(intent);
