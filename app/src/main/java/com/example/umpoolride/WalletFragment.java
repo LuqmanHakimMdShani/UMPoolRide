@@ -14,9 +14,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class WalletFragment extends Fragment {
 
     DatabaseHelper myDB;
+    BottomNavigationView bottomNavigationView,driverbottomNavigationView;
 
     public WalletFragment() {
         // Required empty public constructor
@@ -34,9 +37,21 @@ public class WalletFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
-        toolbar.setVisibility(View.GONE);
+        toolbar.setVisibility(View.VISIBLE);
+        toolbar.setTitle("Wallet");
 
         //((MainActivity) getActivity()).getSupportActionBar().setTitle("Wallet");
+
+        bottomNavigationView = getActivity().findViewById(R.id.bottom_nav_view);
+        driverbottomNavigationView = getActivity().findViewById(R.id.driver_bottom_nav_view);
+
+        if(Credentials.TYPEUSER.equals("Driver")) {
+            bottomNavigationView.setVisibility(View.GONE);
+            driverbottomNavigationView.setVisibility(View.VISIBLE);
+        }else{
+            driverbottomNavigationView.setVisibility(View.GONE);
+            bottomNavigationView.setVisibility(View.VISIBLE);
+        }
 
         double sum = 0;
 
@@ -45,9 +60,6 @@ public class WalletFragment extends Fragment {
         ImageButton TopupBtn = view.findViewById(R.id.TopupBtn);
 
         TextView TVAmount = view.findViewById(R.id.TVAmountMain);
-        TextView TVType = view.findViewById(R.id.TVType);
-
-        TVType.setText(Credentials.TYPEUSER);
 
         Cursor cursor = myDB.SumAmount();
         if (cursor.moveToFirst()) {

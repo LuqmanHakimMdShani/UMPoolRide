@@ -9,6 +9,21 @@
     tools:context=".MainMenuFragment">
 
     <ImageButton
+        android:id="@+id/BookBtn"
+        android:layout_width="136dp"
+        android:layout_height="156dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="TopUp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/bookcarbtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <ImageButton
         android:id="@+id/ContactBtn"
         android:layout_width="136dp"
         android:layout_height="156dp"
@@ -18,10 +33,10 @@
         android:src="@drawable/contactusicon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.784"
         app:layout_constraintStart_toEndOf="@+id/TopupBtnMain"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintTop_toTopOf="@+id/BookBtn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/TitleTV"
@@ -48,10 +63,10 @@
         android:src="@drawable/topupicon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toEndOf="@+id/BookBtn"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintTop_toTopOf="@+id/BookBtn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -98,56 +113,31 @@
         tools:layout_editor_absoluteX="155dp"
         tools:layout_editor_absoluteY="537dp" />
 
-    <TextView
-        android:id="@+id/TVType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TopupBtn"
-        app:layout_constraintVertical_bias="0.202" />
-
     <ImageButton
         android:id="@+id/DriverApplyBtn2"
         android:layout_width="351dp"
         android:layout_height="130dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="72dp"
         android:scaleType="center"
         android:src="@drawable/driverpromo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TopupBtn"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="PROMO"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/TVType"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/DriverApplyBtn2"
         app:layout_constraintTop_toBottomOf="@+id/BookBtn"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/BookBtn"
-        android:layout_width="127dp"
-        android:layout_height="158dp"
-        android:src="@drawable/bookcarbtn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.145" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

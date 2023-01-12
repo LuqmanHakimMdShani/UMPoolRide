@@ -22,7 +22,7 @@ public class SignInFragment extends Fragment {
     DatabaseHelper myDB;
     EditText Siswamail, Password;
     ImageButton LoginBtn;
-    Button ForgotpassBtn;
+    Button ForgotpassBtn,CreateaccBtn;
 
     public SignInFragment() {
         // Required empty public constructor
@@ -48,6 +48,14 @@ public class SignInFragment extends Fragment {
         Password = view.findViewById(R.id.ETPassword);
         LoginBtn = view.findViewById(R.id.LoginBtn);
         ForgotpassBtn = view.findViewById(R.id.ForgotpassBtn);
+        CreateaccBtn = view.findViewById(R.id.CreateaccBtn);
+
+        CreateaccBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.SigninToSignup);
+            }
+        });
 
         LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

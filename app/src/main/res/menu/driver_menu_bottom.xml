@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/DestWallet"
+        android:id="@+id/DestMain"
         android:icon="@drawable/wallet"
         android:title="Home"
         android:visible="true" />

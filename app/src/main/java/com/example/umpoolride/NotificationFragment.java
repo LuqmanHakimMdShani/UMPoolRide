@@ -3,25 +3,18 @@ package com.example.umpoolride;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class NotificationFragment extends Fragment {
@@ -91,38 +84,6 @@ public class NotificationFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        ImageButton AddNotiBtn = view.findViewById(R.id.AddNotiBtn);
-
-        View.OnClickListener OCLAddNoti = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
-                String currentTime = dateFormat.format(new Date());
-                String username = Credentials.USERNAME;
-                String NotiTitle = "Top up";
-                String NotiDesc = "RM 5.00";
-
-                boolean isInserted = myDB.insertNoti(username,NotiTitle,NotiDesc,currentTime);
-                if (isInserted = true)
-                    Toast.makeText(getActivity(),"Notification Inserted",Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(getActivity(),"Notification not Inserted",Toast.LENGTH_LONG).show();
-
-                sendNotification(NotiTitle,NotiDesc);
-            }
-        };
-        AddNotiBtn.setOnClickListener(OCLAddNoti);
-
     }
 
-    private void sendNotification(String NotiTitle,String NotiDesc) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID)
-                .setSmallIcon(R.drawable.notificationicon)
-                .setContentTitle(NotiTitle)
-                .setContentText(NotiDesc)
-                .setPriority(NotificationCompat.PRIORITY_HIGH);
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
-        notificationManager.notify(1, builder.build());
-    }
 }

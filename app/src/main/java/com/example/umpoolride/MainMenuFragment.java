@@ -1,10 +1,12 @@
 package com.example.umpoolride;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +30,7 @@ public class MainMenuFragment extends Fragment {
     }
     BottomNavigationView bottomNavigationView,driverbottomNavigationView;
     ImageButton BookBtn,TopupBtnMain,ContactBtn,DriverApplyBtn2;
+    DatabaseHelper myDB;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -51,6 +54,19 @@ public class MainMenuFragment extends Fragment {
         TopupBtnMain = view.findViewById(R.id.TopupBtnMain);
         ContactBtn = view.findViewById(R.id.ContactBtn);
         DriverApplyBtn2 = view.findViewById(R.id.DriverApplyBtn2);
+
+        double sum = 0;
+
+        myDB = new DatabaseHelper(getContext());
+
+        TextView TVAmount = view.findViewById(R.id.TVAmountMain);
+
+        Cursor cursor = myDB.SumAmount();
+        if (cursor.moveToFirst()) {
+            sum = cursor.getDouble(0);
+        }
+        TVAmount.setText(String.format("RM %.2f", sum));
+        cursor.close();
 
         TopupBtnMain.setOnClickListener(new View.OnClickListener() {
             @Override
