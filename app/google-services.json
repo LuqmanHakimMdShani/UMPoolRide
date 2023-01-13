@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1075119039974",
+    "project_id": "mapapp-1666590588787",
+    "storage_bucket": "mapapp-1666590588787.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075119039974:android:3052776e51421467e7e227",
+        "android_client_info": {
+          "package_name": "com.example.umpoolride"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075119039974-qo12c620919dh4g93mo3h5j2nbv1n2gv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.umpoolride",
+            "certificate_hash": "5d85130a19097cec0e070baa4d64e5886399061e"
+          }
+        },
+        {
+          "client_id": "1075119039974-jckh7i1jefg1kt6sf1rkkvkmsofh5qjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjr00fkdW_JsmBwsRklPZa_3-aIF8wRww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075119039974-jckh7i1jefg1kt6sf1rkkvkmsofh5qjb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
