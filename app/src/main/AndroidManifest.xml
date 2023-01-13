@@ -28,6 +28,20 @@
         </activity>
         <activity android:name=".TopupSourceFragment" />
         <activity
+            android:name=".activity.MapsActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".base.BaseActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".HomePageFragment"
             android:exported="false" >
             <meta-data

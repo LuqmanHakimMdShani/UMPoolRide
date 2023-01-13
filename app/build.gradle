@@ -1,3 +1,9 @@
+buildscript {
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.13'
+    }
+}
+
 plugins {
     id 'com.android.application'
 }
@@ -26,6 +32,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -39,8 +48,14 @@ dependencies {
 
     //Room
     implementation 'androidx.room:room-testing:2.4.3'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
     annotationProcessor 'androidx.room:room-compiler:2.4.3'
     androidTestImplementation 'androidx.room:room-runtime:2.4.3'
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.jakewharton:butterknife:7.0.1'
+    implementation 'com.google.android.gms:play-services:8.4.0'
 
     //Lifecycle
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1'
@@ -59,3 +74,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

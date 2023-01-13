@@ -15,6 +15,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         myDB = new DatabaseHelper(this);
+        myDB.insertUser("Admin","Admin@siswa.um.edu.my","123","Admin");
 
         Toolbar toolbar = findViewById(R.id.ToolbarLogin);
 

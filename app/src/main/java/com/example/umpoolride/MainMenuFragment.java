@@ -1,5 +1,6 @@
 package com.example.umpoolride;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.umpoolride.activity.MapsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainMenuFragment extends Fragment {
@@ -79,6 +81,14 @@ public class MainMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.MainToWallet);
+            }
+        });
+
+        BookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
             }
         });
 
