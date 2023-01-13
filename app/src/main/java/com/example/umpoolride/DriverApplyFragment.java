@@ -37,6 +37,7 @@ public class DriverApplyFragment extends Fragment {
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.ToolbarMain);
         toolbar.setVisibility(View.VISIBLE);
+        toolbar.setTitle("Driver Application Form");
 
         DriverApplySubmit = view.findViewById(R.id.DriverApplySubmit);
         CBTC1 = view.findViewById(R.id.CBTC1);
@@ -50,6 +51,7 @@ public class DriverApplyFragment extends Fragment {
                     Boolean checkuserpass = myDB.UpdateTypeofUser();
                     if (checkuserpass == true){
                         Navigation.findNavController(view).navigate(R.id.DriverApplyToMain);
+
                         Toast.makeText(getActivity(),"Driver application succesful.", Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(getActivity(),"Apply fail.", Toast.LENGTH_LONG).show();

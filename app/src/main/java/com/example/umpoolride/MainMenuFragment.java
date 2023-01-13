@@ -70,6 +70,13 @@ public class MainMenuFragment extends Fragment {
         TVAmount.setText(String.format("RM %.2f", sum));
         cursor.close();
 
+        DriverApplyBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.MainToDriverApply);
+            }
+        });
+
         ContactBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
